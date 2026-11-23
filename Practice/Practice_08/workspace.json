@@ -1,0 +1,693 @@
+{
+  "student": "Гринько Мария",
+  "group": "9/2-РПО-25/3",
+  "version": "Mark 1.01 · 0.1.1 · 25/3 · 60 минут",
+  "startedAt": "2026-11-23T17:51:08.4691019+03:00",
+  "updatedAt": "2026-11-23T18:22:32.9801359+03:00",
+  "tasks": {
+    "1.1": {
+      "code": "#include \u003ciostream\u003e\nint finalPrice(int price, int discount) {\n    if (price \u003c 0 || discount \u003c 0 || discount \u003e 100){\n        return -1;\n    }\n    return price * (100 - discount) / 100;\n}\nint main() { std::cout \u003c\u003c finalPrice(800, 25) \u003c\u003c \"\\n\"; return 0;}\n",
+      "result": {
+        "status": "passed",
+        "message": "Все проверки пройдены.",
+        "codeHash": "7eac2bffc5b7d39904503a60d607556a4709267f623bd26474094bbc5a3e43ce",
+        "compiler": "msvc",
+        "standard": "c++20",
+        "compilation": "student.cpp",
+        "cases": [
+          {
+            "name": "Проверка 1",
+            "input": "1\n",
+            "expected": "600\n",
+            "actual": "600\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 84,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 2",
+            "input": "2\n",
+            "expected": "100\n",
+            "actual": "100\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 3",
+            "input": "3\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 4",
+            "input": "4\n",
+            "expected": "179\n",
+            "actual": "179\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 5",
+            "input": "5\n",
+            "expected": "-1\n",
+            "actual": "-1\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 6",
+            "input": "6\n",
+            "expected": "-1\n",
+            "actual": "-1\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 7",
+            "input": "7\n",
+            "expected": "-1\n",
+            "actual": "-1\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          }
+        ],
+        "durationMs": 1996,
+        "checkedAt": "2026-11-23T18:19:15.9478875+03:00"
+      },
+      "updatedAt": "2026-11-23T18:19:17.9489008+03:00"
+    },
+    "1.2": {
+      "code": "#include \u003ciostream\u003e\nint sumEven(int n) {\n    int sum = 0;\n    \n    for (int i = 2; i \u003c= n; i += 2){\n        sum = sum + i;\n    }\n    \n    return sum;\n}\nint main() { std::cout \u003c\u003c sumEven(8) \u003c\u003c \"\\n\"; return 0;}\n",
+      "result": {
+        "status": "passed",
+        "message": "Все проверки пройдены.",
+        "codeHash": "3325d0e8c23c56a341af30b363b629fc0172a33c026b15bafef0a29bc41ea430",
+        "compiler": "msvc",
+        "standard": "c++20",
+        "compilation": "student.cpp",
+        "cases": [
+          {
+            "name": "Проверка 1",
+            "input": "1\n",
+            "expected": "20\n",
+            "actual": "20\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 84,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 2",
+            "input": "2\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 3",
+            "input": "3\n",
+            "expected": "2\n",
+            "actual": "2\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 40,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 4",
+            "input": "4\n",
+            "expected": "12\n",
+            "actual": "12\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 5",
+            "input": "5\n",
+            "expected": "30\n",
+            "actual": "30\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 38,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 6",
+            "input": "6\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 38,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 7",
+            "input": "7\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 38,
+            "message": "Проверка пройдена."
+          }
+        ],
+        "durationMs": 2022,
+        "checkedAt": "2026-11-23T18:22:30.9537879+03:00"
+      },
+      "updatedAt": "2026-11-23T18:22:32.9801359+03:00"
+    },
+    "2.1": {
+      "code": "#include \u003ciostream\u003e\nenum class Light { Red = 1, Yellow = 2, Green = 3 };\nint waitSeconds(Light light) {\n    switch (light){\n        case Light::Red:\n            return 60;\n        case Light::Yellow:\n            return 5;\n        case Light::Green:\n            return 0;\n        default:\n            return -1; \n    }\n}\nint main() { std::cout \u003c\u003c waitSeconds(Light::Yellow) \u003c\u003c \"\\n\"; return 0;}\n",
+      "result": {
+        "status": "passed",
+        "message": "Все проверки пройдены.",
+        "codeHash": "ab2028a9d252afacb999edd0d59b4c4d035c40fa88d0601667e72f7380be3ed6",
+        "compiler": "msvc",
+        "standard": "c++20",
+        "compilation": "student.cpp",
+        "cases": [
+          {
+            "name": "Проверка 1",
+            "input": "1\n",
+            "expected": "60\n",
+            "actual": "60\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 84,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 2",
+            "input": "2\n",
+            "expected": "5\n",
+            "actual": "5\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 40,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 3",
+            "input": "3\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 38,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 4",
+            "input": "4\n",
+            "expected": "-1\n",
+            "actual": "-1\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 5",
+            "input": "5\n",
+            "expected": "-1\n",
+            "actual": "-1\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          }
+        ],
+        "durationMs": 1923,
+        "checkedAt": "2026-11-23T18:12:03.8042483+03:00"
+      },
+      "updatedAt": "2026-11-23T18:12:05.7317115+03:00"
+    },
+    "2.2": {
+      "code": "#include \u003ciostream\u003e\nconstexpr int kCapacity = 8;\nint remainingTickets(int reserved) {\n    if (reserved \u003c 0 || reserved \u003e kCapacity){\n        return -1;\n        }\n        return kCapacity - reserved;\n}\nint main() { std::cout \u003c\u003c remainingTickets(3) \u003c\u003c \"\\n\"; return 0;}\n",
+      "result": {
+        "status": "passed",
+        "message": "Все проверки пройдены.",
+        "codeHash": "89ffffc4b1a33f053c134dbaf93bc468738e2982d3c9cdd7b653be5d185dc200",
+        "compiler": "msvc",
+        "standard": "c++20",
+        "compilation": "student.cpp",
+        "cases": [
+          {
+            "name": "Проверка 1",
+            "input": "1\n",
+            "expected": "8\n",
+            "actual": "8\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 85,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 2",
+            "input": "2\n",
+            "expected": "5\n",
+            "actual": "5\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 3",
+            "input": "3\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 4",
+            "input": "4\n",
+            "expected": "-1\n",
+            "actual": "-1\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 5",
+            "input": "5\n",
+            "expected": "-1\n",
+            "actual": "-1\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 6",
+            "input": "6\n",
+            "expected": "1\n",
+            "actual": "1\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 38,
+            "message": "Проверка пройдена."
+          }
+        ],
+        "durationMs": 1983,
+        "checkedAt": "2026-11-23T18:15:52.0586912+03:00"
+      },
+      "updatedAt": "2026-11-23T18:15:54.0454303+03:00"
+    },
+    "3.1": {
+      "code": "#include \u003ciostream\u003e\nvoid normalizeScore(int\u0026 score) {\n    if (score \u003c 0) {\n        score = 0;\n    }\n    if (score \u003e 100){\n        score = 100;\n    }\n}\nint main() { int score = 125; normalizeScore(score); std::cout \u003c\u003c score \u003c\u003c \"\\n\"; return 0;}\n",
+      "result": {
+        "status": "passed",
+        "message": "Все проверки пройдены.",
+        "codeHash": "da0ad908b242a4861ef80a723fd255dc6f8ca729e54349e103f84b08e3a1d39b",
+        "compiler": "msvc",
+        "standard": "c++20",
+        "compilation": "student.cpp",
+        "cases": [
+          {
+            "name": "Проверка 1",
+            "input": "1\n",
+            "expected": "100\n",
+            "actual": "100\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 84,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 2",
+            "input": "2\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 3",
+            "input": "3\n",
+            "expected": "47\n",
+            "actual": "47\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 4",
+            "input": "4\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 5",
+            "input": "5\n",
+            "expected": "100\n",
+            "actual": "100\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 39,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 6",
+            "input": "6\n",
+            "expected": "100\n",
+            "actual": "100\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          }
+        ],
+        "durationMs": 1967,
+        "checkedAt": "2026-11-23T18:01:16.1146243+03:00"
+      },
+      "updatedAt": "2026-11-23T18:01:18.0865266+03:00"
+    },
+    "3.2": {
+      "code": "#include \u003ciostream\u003e\nvoid orderPair(int\u0026 first, int\u0026 second) {\n    if (first \u003e second) {\n        int temp = first;\n        first = second;\n        second = temp;\n    }    \n}\nint main() { int a=9, b=4; orderPair(a,b); std::cout \u003c\u003c a \u003c\u003c \" \" \u003c\u003c b \u003c\u003c \"\\n\"; return 0;}\n",
+      "result": {
+        "status": "passed",
+        "message": "Все проверки пройдены.",
+        "codeHash": "3a9750699230f55a5b5df47579ee4b7f3ab7b29c93bea8a337b1086d14ea3c22",
+        "compiler": "msvc",
+        "standard": "c++20",
+        "compilation": "student.cpp",
+        "cases": [
+          {
+            "name": "Проверка 1",
+            "input": "1\n",
+            "expected": "4 9\n",
+            "actual": "4 9\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 84,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 2",
+            "input": "2\n",
+            "expected": "2 8\n",
+            "actual": "2 8\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 3",
+            "input": "3\n",
+            "expected": "-9 -2\n",
+            "actual": "-9 -2\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 4",
+            "input": "4\n",
+            "expected": "3 3\n",
+            "actual": "3 3\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          }
+        ],
+        "durationMs": 1893,
+        "checkedAt": "2026-11-23T18:05:35.915447+03:00"
+      },
+      "updatedAt": "2026-11-23T18:05:37.8122969+03:00"
+    },
+    "4.1": {
+      "code": "#include \u003ciostream\u003e\nint readOr(const int* value, int fallback) {\n    if (value == nullptr){\n    return fallback;\n    }\n    return *value;\n}\nint main() { int x=42; std::cout \u003c\u003c readOr(\u0026x, -1) \u003c\u003c \"\\n\"; return 0;}\n",
+      "result": {
+        "status": "passed",
+        "message": "Все проверки пройдены.",
+        "codeHash": "a2beb0cdb8eef9eca1f2729d7a25961b21ccf0a1dbf5240852f9a67123f4676f",
+        "compiler": "msvc",
+        "standard": "c++20",
+        "compilation": "student.cpp",
+        "cases": [
+          {
+            "name": "Проверка 1",
+            "input": "1\n",
+            "expected": "42\n",
+            "actual": "42\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 85,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 2",
+            "input": "2\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 3",
+            "input": "3\n",
+            "expected": "-12\n",
+            "actual": "-12\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 4",
+            "input": "4\n",
+            "expected": "9\n",
+            "actual": "9\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 5",
+            "input": "5\n",
+            "expected": "-5\n",
+            "actual": "-5\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 6",
+            "input": "6\n",
+            "expected": "100\n",
+            "actual": "100\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          }
+        ],
+        "durationMs": 1988,
+        "checkedAt": "2026-11-23T17:54:13.99787+03:00"
+      },
+      "updatedAt": "2026-11-23T17:54:15.9896566+03:00"
+    },
+    "4.2": {
+      "code": "#include \u003ciostream\u003e\nbool addIfExists(int* value, int delta) {\n    if (value == nullptr){\n    return false;\n    }\n    *value = *value + delta;\n    return true;\n}\nint main() { int x=10; bool ok=addIfExists(\u0026x,5); std::cout \u003c\u003c ok \u003c\u003c \" \" \u003c\u003c x \u003c\u003c \"\\n\"; return 0; }\n",
+      "result": {
+        "status": "passed",
+        "message": "Все проверки пройдены.",
+        "codeHash": "aaf51a2b940ad8781b7556d9a7e21e447a607010c20e1eaae192339bc4d49338",
+        "compiler": "msvc",
+        "standard": "c++20",
+        "compilation": "student.cpp",
+        "cases": [
+          {
+            "name": "Проверка 1",
+            "input": "1\n",
+            "expected": "1 15\n",
+            "actual": "1 15\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 87,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 2",
+            "input": "2\n",
+            "expected": "1 -2\n",
+            "actual": "1 -2\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 3",
+            "input": "3\n",
+            "expected": "1 3\n",
+            "actual": "1 3\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 4",
+            "input": "4\n",
+            "expected": "1 5\n",
+            "actual": "1 5\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 36,
+            "message": "Проверка пройдена."
+          },
+          {
+            "name": "Проверка 5",
+            "input": "5\n",
+            "expected": "0\n",
+            "actual": "0\r\n",
+            "stderr": "",
+            "passed": true,
+            "exit": 0,
+            "expectedExit": 0,
+            "durationMs": 37,
+            "message": "Проверка пройдена."
+          }
+        ],
+        "durationMs": 1941,
+        "checkedAt": "2026-11-23T17:57:46.5306941+03:00"
+      },
+      "updatedAt": "2026-11-23T17:57:48.4755967+03:00"
+    },
+    "5.1": {
+      "code": "",
+      "updatedAt": "0001-01-01T00:00:00Z"
+    }
+  }
+}

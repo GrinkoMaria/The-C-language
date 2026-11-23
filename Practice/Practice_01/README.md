@@ -1,100 +1,187 @@
-# 📘 Учебные примеры на C++ — Уроки 1–3
+# Разбор практики: Работа с переменными и формирование отчётов
 
-Ниже — описание трёх функций из файла `#include iostream.txt`. Для каждой функции дано её назначение, разбор ключевых моментов и замечания по коду. Полный код с точкой входа приведён в конце.
-
----
-
-## 🔹 1. `lesson_one()` — профиль студента
-
-**Назначение:** собирает имя и группу пользователя, а затем выводит карточку студента с демонстрацией работы с разными типами данных (`int`, `double`, `bool`, `const int`, счётчик).
-
-**Разбор и замечания:**
-- Используются базовые типы: `std::string`, `int`, `double`, `bool`, `const int`.
-- `int counter{}` — инициализация нулём (uniform initialization), хорошая практика.
-- `std::getline(std::cin, name)` — читает строку целиком, включая пробелы.
-- `int save = counter;` — сохраняет исходное значение `counter` (0) до его изменения.
-- `std::boolalpha` — манипулятор, включает вывод `true`/`false` вместо `1`/`0`.
-- ⚠️ **Логическая ошибка:** `save` объявлен после ввода, но до изменения `counter`. По задумке «Completed before» = 0, «Saved completed» = 0 — это корректно, но стоит явно комментировать цель сохранения.
-- ⚠️ `std::getline(std::cin, name)` без `std::ws` может прочитать пустую строку, если до этого был `cin >> ...`. В этой функции ввод идёт с чистого потока, поэтому проблемы нет — но при объединении с другими функциями это станет ошибкой.
-- 💡 `const int lessons = 2;` — константа, менять нельзя. Хороший стиль.
-
----
-
-## 🔹 2. `lesson_two()` — заказ в кафе
-
-**Назначение:** рассчитывает стоимость заказа в кафе: цена порции × количество + сервисный сбор, выводит чек и статус оплаты.
-
-**Разбор и замечания:**
-- `const double Portion_price = 145.5;` и `const double fee = 20.0;` — константы, защищённые от изменения.
-- `double subtotal = Portion_price * portions;` — промежуточная сумма.
-- `double total = subtotal + fee;` — итоговая сумма.
-- `std::boolalpha` — печать `false` вместо `0`.
-- ⚠️ Стиль именования: `Portion_price` — смешанный (PascalCase + snake_case). Лучше `portionPrice` (camelCase) или `PORTION_PRICE` (константа).
-- ⚠️ **Опечатка:** `"RUB"` приклеено к числу без пробела: `145.5RUB`. Лучше `145.5 RUB`.
-- ⚠️ Как и в `lesson_one`, `std::getline` без `std::ws` — безопасно только при чистом потоке.
-
----
-
-## 🔹 3. `lesson_three()` — билет на IT-митап
-
-**Назначение:** рассчитывает стоимость билетов на мероприятие с сервисным сбором, демонстрирует изменение переменных (`issued`, `confirmed`) и сохранение их исходных значений.
-
-**Разбор и замечания:**
-- `const int price = 200;` и `const int fee = 25;` — константы.
-- `int total = (price * tickets) + fee;` — расчёт итоговой суммы.
-- `int saved_issued = issued;` — сохраняет исходное значение `issued` (0) до изменения.
-- `std::cout << std::boolalpha;` — включает вывод `true`/`false` для всех последующих `bool`.
-- `issued = tickets;` и `confirmed = true;` — обновление состояния после «выдачи билетов».
-- ⚠️ **Отступы:** функция `lesson_three()` имеет лишний уровень отступа (весь код сдвинут на один таб вправо). Это не ошибка компиляции, но нарушает стиль.
-- ⚠️ `std::boolalpha` включён только перед выводом `confirmed`. Если планируется ещё вывод `bool`, лучше включить его в начале функции.
-- ⚠️ `int total` — целочисленное сложение. Если цены/сборы могут быть дробными, стоит использовать `double`.
-- ⚠️ Дублирование `#include <iostream>` и `#include <string>` между функциями — в одном файле достаточно одного включения в начале.
-
----
-
-## 🧩 Сводка замечаний
-
-| Функция | Проблема | Рекомендация |
-|---|---|---|
-| `lesson_one` | `save` без комментария; `getline` без `std::ws` | добавить комментарий, использовать `std::ws` при смешанном вводе |
-| `lesson_two` | стиль `Portion_price`; нет пробела в `145.5RUB` | `portionPrice`, `"145.5 RUB"` |
-| `lesson_three` | лишний отступ; `boolalpha` локально; целочисленный `total`; дублирование `#include` | выровнять отступы, включить `boolalpha` в начале, при необходимости `double` |
-
----
-
-## 🚀 Как собрать в Visual Studio 2022
-
-1. **Создайте проект:** «Файл» → «Создать» → «Проект» → **«Консольное приложение»** (C++).
-2. **Добавьте файл** `main.cpp` и вставьте код.
-3. **Соберите:** `Ctrl + Shift + B`. Запустите: `Ctrl + F5`.
-
----
-
-## 💻 Точка входа (main)
-
-Код с меню выбора для запуска любой из описанных выше функций:
+## Функция `lesson_one`
 
 ```cpp
-// ---------- main ----------
-int main() {
-    int choice{};
-    std::cout << "Выберите пример:\n"
-              << "1 - lesson_one (профиль студента)\n"
-              << "2 - lesson_two (заказ в кафе)\n"
-              << "3 - lesson_three (билет на IT-митап)\n"
-              << "> ";
-    std::cin >> choice;
+int lesson_one() {
+	std::string name;
+	std::string group;
 
-    // Сбрасываем оставшийся '\n' после cin >> choice,
-    // иначе первый getline внутри функций прочитает пустую строку.
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	int age = 16;
+	double experience = 1.5;
+	bool ready = false;
+	const int lessons = 2;
+	int counter{};
 
-    switch (choice) {
-        case 1: lesson_one();   break;
-        case 2: lesson_two();   break;
-        case 3: lesson_three(); break;
-        default: std::cout << "Нет такого пункта\n";
-    }
+	std::cout << "Name: ";
+	std::getline(std::cin, name);
+	std::cout << "Group: ";
+	std::getline(std::cin, group);
 
-    return 0;
+	int save = counter;
+
+	std::cout << "STUDENT PROFILE" << "\n";
+	std::cout << "Name: " << name << "\n";
+	std::cout << "Group: " << group << "\n";
+	std::cout << "Course: C++" << "\n";
+	std::cout << "Age: " << age << "\n";
+	std::cout << "Experience: " << experience << " years\n";
+
+	std::cout << "Ready: " << std::boolalpha << ready << "\n";
+
+	std::cout << "Lessons: " << lessons << "\n";
+	std::cout << "Completed before: " << counter << "\n";
+
+	counter = 3;
+
+	std::cout << "Completed after: " << counter << "\n";
+	std::cout << "Saved completed: " << save << "\n";
+
+	return 0;
 }
+```
+
+Ожидаемый вывод (пример):
+
+```
+Name: Ivan
+Group: IS-21
+STUDENT PROFILE
+Name: Ivan
+Group: IS-21
+Course: C++
+Age: 16
+Experience: 1.5 years
+Ready: false
+Lessons: 2
+Completed before: 0
+Completed after: 3
+Saved completed: 0
+```
+
+Смысл функции:
+Это учебная практика по созданию профиля студента. Смысл в том, чтобы показать разницу между объявлением переменных, их инициализацией и последующим изменением. Обрати внимание на переменную `save`: она сохраняет старое значение `counter` (ноль) до того, как `counter` изменится на 3. Это демонстрирует, что переменные хранят значения на момент присваивания. Также здесь показано, как работают константы (`lessons` нельзя изменить) и как `std::boolalpha` превращает 0/1 в `false`/`true` для удобного вывода. Функция полезна для закрепления понимания области видимости и жизненного цикла переменных.
+
+Ошибка в коде: Дублируется директива `#include <iostream>` и `#include <string>` — они уже подключены в начале файла. Это не вызовет ошибки, но считается плохой практикой.
+
+## Функция `lesson_two`
+
+```cpp
+int lesson_two() {
+	std::string customer;
+	std::string dish;
+	int portions = 3;
+	const double Portion_price = 145.5;
+	const double fee = 20.0;
+	bool paid = false;
+
+	std::cout << "Customer: ";
+	std::getline(std::cin, customer);
+	std::cout << "Dish: ";
+	std::getline(std::cin, dish);
+
+	double subtotal = Portion_price * portions;
+	double total = subtotal + fee;
+
+	std::cout << "CAFE ORDER" << "\n";
+	std::cout << "Customer: " << customer << "\n";
+	std::cout << "Dish: " << dish << "\n";
+	std::cout << "Portion price: " << Portion_price << "RUB" << "\n";
+	std::cout << "Portions: " << portions << "\n";
+	std::cout << "Subtotal: " << subtotal << "RUB" << "\n";
+	std::cout << "Service fee: " << fee << "RUB" << "\n";
+	std::cout << "Total: " << total << "RUB" << "\n";
+
+	std::cout << "Paid: " << std::boolalpha << paid << "\n";
+
+	return 0;
+}
+```
+
+Ожидаемый вывод (пример):
+
+```
+Customer: Anna
+Dish: Pasta
+CAFE ORDER
+Customer: Anna
+Dish: Pasta
+Portion price: 145.5RUB
+Portions: 3
+Subtotal: 436.5RUB
+Service fee: 20RUB
+Total: 456.5RUB
+Paid: false
+```
+
+Смысл функции:
+Практика по вычислению стоимости заказа с фиксированным сервисным сбором. Здесь важно увидеть, как дробные числа (`double`) взаимодействуют с целыми (`int`) при умножении. Результат умножения 145.5 * 3 сохраняется в `double`, что позволяет избежать потери точности. Также показано, как константы (`Portion_price`, `fee`) защищают данные от случайного изменения. Функция учит аккуратно формировать отчет с итоговыми суммами и использовать `std::boolalpha` для статуса оплаты.
+
+## Функция `lesson_three`
+
+```cpp
+int lesson_three() {
+		std::string practicant;
+		std::string event;
+		const int price = 200;
+		int tickets = 3;
+		const int fee = 25;
+		int issued = 0;
+		bool confirmed = false;
+
+		std::cout << "Participant: ";
+		std::getline(std::cin, practicant);
+		std::cout << "Event: ";
+		std::getline(std::cin, event);
+
+		int total = (price * tickets) + fee;
+		int saved_issued = issued;
+
+		std::cout << "IT MEETUP TICKET" << "\n";
+		std::cout << "Organizer: IT Academy\n";
+		std::cout << "Practicant: " << practicant << "\n";
+		std::cout << "Event: \"" << event << "\"\n";
+		std::cout << "Ticket price: " << price << "RUB" << "\n";
+		std::cout << "Tickets: " << tickets << "\n";
+		std::cout << "Service fee: " << fee << "RUB" << "\n";
+		std::cout << "Total: " << total << "RUB" << "\n";
+
+		std::cout << "Issued before: " << issued << "\n";
+		std::cout << std::boolalpha;
+		std::cout << "Confirmed before: " << confirmed << "\n";
+
+		issued = tickets;
+		confirmed = true;
+
+		std::cout << "Issued after: " << issued << "\n";
+		std::cout << "Confirmed after: " << confirmed << "\n";
+		std::cout << "Saved issued: " << saved_issued << "\n";
+
+		return 0;
+}
+```
+
+Ожидаемый вывод (пример):
+
+```
+Participant: Oleg
+Event: C++ Meetup
+IT MEETUP TICKET
+Organizer: IT Academy
+Practicant: Oleg
+Event: "C++ Meetup"
+Ticket price: 200RUB
+Tickets: 3
+Service fee: 25RUB
+Total: 625RUB
+Issued before: 0
+Confirmed before: false
+Issued after: 3
+Confirmed after: true
+Saved issued: 0
+```
+
+Смысл функции:
+Практика на закрепление работы с целочисленными вычислениями и изменением состояния переменных. Здесь показано, как сохранить старое значение (`saved_issued`) до изменения, чтобы потом вывести его для сравнения «до и после». Также демонстрируется, что `std::boolalpha` можно включать отдельной строкой, и он продолжает действовать на весь последующий вывод. Функция полезна для понимания того, как состояние программы меняется пошагово, и как важно фиксировать промежуточные значения для отчетности.
+
+Ошибка в коде: Как и во второй функции, здесь нет ошибок, но лишние директивы `#include` в начале блока не нужны — они уже подключены в первой функции.
